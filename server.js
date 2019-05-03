@@ -6,6 +6,7 @@ const methodOverride  = require('method-override');
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
+const Beer = require('./models/beer.js');
 //___________________
 //Port
 //___________________
@@ -37,41 +38,198 @@ db.on('open' , ()=>{});
 app.use(express.static('public'));
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
 app.use(express.json());// returns middleware that only parses JSON - may or may not need it depending on your project
 
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
 
+///////////////////////////////// SEED //////////////////////////////////////////
+
+app.get('/seed', async (req, res) => {
+  const newBeer =
+    [
+      {
+        //img: "./images/pegasus_city.png",
+        name: "Pegasus City Brewery",
+        street: "2222 Vantage St",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "http://www.pegasuscitybrewery.com",
+        tag_list: []
+      },
+      {
+        //img: "./images/tap.png",
+        name: "Texas Ale Project",
+        street: "1001 N Riverfront Blvd",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "http://www.texasaleproject.com",
+        tag_list: []
+      },
+      {
+        //img: "./images/braindead.png",
+        name: "Braindead Brewing",
+        street: "2625 Main St",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "http://www.braindeadbrewing.com",
+        tag_list: []
+      },
+      {
+        //img: "./images/four_corners.png",
+        name: "Four Corners Brewing Co",
+        street: "423 Singleton Blvd",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "http://www.fcbrewing.com",
+        tag_list: []
+      },
+      {
+        //img: "./images/oak_cliff.jpg",
+        name: "Oak Cliff Brewing Co",
+        street: "1300 S. Polk St",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "",
+        tag_list: []
+      },
+      {
+        //img: "./images/peticolas.png",
+        name: "Peticolas Brewing Co",
+        street: "2026 Farrington St",
+        city: "Dallas",
+        state: "Texas",
+        country: "United States",
+        //"website_url": "http://www.peticolasbrewing.com",
+        tag_list: []
+      },
+
+    ]
+
+  try {
+    const seedItems = await Beer.create(newBeer)
+    res.send(seedItems)
+  } catch (err) {
+    res.send(err.message)
+  }
+})
+
+
+
+
 //___________________
 // Routes
 //___________________
 //localhost:3000
-
-//NEW ROUTE
-app.get('/new' , (req, res) => { //change to thirstee???
-  res.render('new.ejs');
-});
-
-//EDIT ROUTE
-app.get('/edit' , (req, res) => { //change to thirstee???
-  res.render('edit.ejs');
-});
-
-//SHOW ROUTE
-app.get('/show' , (req, res) => { //change to thirstee???
-  res.render('show.ejs');
+////////////// databse test route ////////////
+// app.get('/test' , (req, res) => { //change to thirstee???
+//   Beer.find({}, (err, beer) => {
+//     res.send(beer)
+//   });
+// });
+app.get('/' , (req, res) => {
+  res.send('Hello THIRSTEE! Use thirstee in your query string');
 });
 
 //INDEX ROUTE
-app.get('/index' , (req, res) => { //change to thirstee???
-  res.render('index.ejs');
+app.get('/thirstee' , (req, res) => {
+  Beer.find({}, (err, allBeer) => {
+    res.render('index.ejs', {
+      beers: allBeer
+    });
+  });
 });
 
-app.get('/' , (req, res) => {
-  res.send('Hello THIRSTEE!');
+//NEW ROUTE
+app.get('/thirstee/new' , (req, res) => {
+  res.render('new.ejs')
+  // Beer.findById(req.params.id, (err, newBeer) => {
+  //   res.render('new.ejs', {
+  //     beers: newBeer
+  //   })
+  // })
 });
+
+//SHOW ROUTE
+app.get('/thirstee/:id' , (req, res) => {
+  Beer.findById(req.params.id, (err, foundBeer) => {
+    res.render('show.ejs', {
+      beers: foundBeer
+    })
+  })
+});
+
+//EDIT ROUTE
+// app.get('/thirstee/edit' , (req, res) => {
+//   res.render('edit.ejs');
+// });
+
+// POST - NEW route
+app.post('/thirstee', (req, res) => {
+  //console.log(req.body);
+  // creates newBeer object to match the data structure of the model
+  let newBeer = {
+    name: req.body.name,
+    street: req.body.street,
+    city: req.body.city,
+    state: req.body.state,
+    country: req.body.country,
+    tag_list: req.body.tag_list //.split(','), maybe???
+  };
+  console.log(newBeer);
+  // pushes the newBeer object into the databse
+  Beer.create(newBeer);
+  // redirects to index page
+  res.redirect('/thirstee' );
+});
+
+  // PUT - EDIT route
+  // app.get('thirstee/:id/edit', (req,res) => {
+  //   res.send('editing....')
+  // })
+  app.get('thirstee/:id/edit', (req,res) => {
+    Beer.findById(req.params.id, (err, foundBeer) => {
+      res.render('edit.ejs', {
+        beers: foundBeer
+      })
+    })
+    res.send('editing....')
+  })
+// app.put('/thirstee/:id/edit', (req, res) => {
+//   //console.log(req.body);
+//   // creates editBeer object to match the data structure of the model
+//   let editBeer = {
+//     name: req.body.name,
+//     street: req.body.street,
+//     city: req.body.city,
+//     state: req.body.state,
+//     country: req.body.country,
+//     tag_list: req.body.tag_list //.split(','), maybe???
+//   };
+//   console.log(editBeer);
+//   // finds the brewery we're editing by the id, then sets it equal to the editBeer object
+//   Beer[req.params.id] = editBeer; //this did say index instead of id
+//   res.redirect('/thirstee/' + req.params.id); //this did say index instead of id
+// })
+
+
+// DELETE - DESTROY route
+app.delete('/:id', (req, res) => {
+  // res.send('deleting...')
+  Beer.findByIdAndRemove(req.params.id, (err, data) => {//this did say index
+  res.redirect('/thirstee');
+  });
+});
+
+
+
 
 
 //___________________
