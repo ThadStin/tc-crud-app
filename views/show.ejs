@@ -6,14 +6,14 @@
   </head>
   <body>
     <h1>Thirstee Show Page!!</h1>
-    The <%=beers.name%> is in  <%=beers.city%>.
-    <img src="<%= beers.img %> ">
+    The <%=beer.name%> is in  <%=beer.city%>.
+    <img src="<%= beer.img %> ">
 
-    <form action= "/<%=beers.id%>?_method=DELETE" method="POST">
+    <form action= "/<%=beer.id%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE"/>
     </form>
-    <a href="thirstee/<%=beers.id%>/edit">Edit product</a>  <!--when clicked, doubles down on thirstee.
-      if I take it out, only returns :id/edit.  Why??  -->
+    <a href="/thirstee/<%=beer.id%>/edit">Edit product</a>  <!--when clicked, doubles down on thirstee.
+      if I take it out, only returns :id/edit.  Why??  fixed doubling down but still can't GET-->
 <nav>
   <a href="/thirstee">Back to Breweries</a>
 </nav>

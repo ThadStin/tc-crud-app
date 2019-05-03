@@ -9,7 +9,6 @@ const beerSchema = new mongoose.Schema({
   state: {type: String, required: true},
   country: {type: String, required: true},
   tag_list: [{type: String, required: false}],
-  //img: String,
 });
 
 const Beer = mongoose.model('Beers', beerSchema);

@@ -35,16 +35,16 @@
   <div class="container">
     <div class="row">
       <h1>Thirstee Drink Finder</h1>
-      <img src="./images/braindead.png" alt="">
+      <img src="/images/braindead.png" alt="">
       <div class="one-half column" style="margin-top: 25%">
         <% for (let i = 0; i < beers.length; i++) { %>
           <a href="/thirstee/<%=beers[i].id%>"> <%= beers[i].name %> </a>
             <% } %>
 
             <nav>
-              <a href="./thirstee/new/">Make New Watering Hole!</a>
+              <a href="/thirstee/new/">Make New Watering Hole!</a>
             </nav>
-            <img src="./images/tap.png" alt="">
+            <img src="/images/tap.png" alt="">
       </div>
     </div>
   </div>

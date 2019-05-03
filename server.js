@@ -134,20 +134,45 @@ app.get('/seed', async (req, res) => {
 //     res.send(beer)
 //   });
 // });
-app.get('/' , (req, res) => {
-  res.send('Hello THIRSTEE! Use thirstee in your query string');
-});
 
-//INDEX ROUTE
-app.get('/thirstee' , (req, res) => {
-  Beer.find({}, (err, allBeer) => {
-    res.render('index.ejs', {
-      beers: allBeer
-    });
-  });
+//PUT - EDIT ROUTE 5
+// app.get('/thirstee/:id/edit' , (req, res) => {
+//   res.render('edit.ejs');
+// });
+app.put('/thirstee/:id', (req, res) => {
+  Beer.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
+  res.redirect('/thirstee/:id')       //new:false shows what you used to have before you changed it
+})  //take back to show page
 });
+// app.get('thirstee/edit', (req,res) => {
+//   res.send('editing....')
+// })
+//////UPDATE - edit 6
+app.get('/thirstee/:id/edit', (req,res) => {
+  Beer.findById(req.params.id, (err, editBeer) => {
+   res.render('edit.ejs', {
+     beery: editBeer
+   })
+  })
+});
+// app.put('/thirstee/:id/edit', (req, res) => {
+//   //console.log(req.body);
+//   // creates editBeer object to match the data structure of the model
+//   let editBeer = {
+//     name: req.body.name,
+//     street: req.body.street,
+//     city: req.body.city,
+//     state: req.body.state,
+//     country: req.body.country,
+//     tag_list: req.body.tag_list //.split(','), maybe???
+//   };
+//   console.log(editBeer);
+//   // finds the brewery we're editing by the id, then sets it equal to the editBeer object
+//   Beer[req.params.id] = editBeer; //this did say index instead of id
+//   res.redirect('/thirstee/' + req.params.id); //this did say index instead of id
+// })
 
-//NEW ROUTE
+//NEW ROUTE 2
 app.get('/thirstee/new' , (req, res) => {
   res.render('new.ejs')
   // Beer.findById(req.params.id, (err, newBeer) => {
@@ -157,21 +182,41 @@ app.get('/thirstee/new' , (req, res) => {
   // })
 });
 
-//SHOW ROUTE
+
+// DELETE - DESTROY route 7
+app.delete('/:id', (req, res) => {  //had to remove /thirstee from url for some reason
+  // res.send('deleting...')
+  Beer.findByIdAndRemove(req.params.id, (err, data) => {//this did say index
+  res.redirect('/thirstee');
+  });
+});
+
+
+// app.get('/' , (req, res) => {
+//   res.send('Hello THIRSTEE! Use thirstee in your query string');
+// });
+
+//INDEX ROUTE 1
+app.get('/thirstee' , (req, res) => {
+  Beer.find({}, (err, allBeer) => {
+    res.render('index.ejs', {
+      beers: allBeer
+    });
+  });
+});
+
+
+//SHOW ROUTE 4
 app.get('/thirstee/:id' , (req, res) => {
   Beer.findById(req.params.id, (err, foundBeer) => {
     res.render('show.ejs', {
-      beers: foundBeer
+      beer: foundBeer
     })
   })
 });
 
-//EDIT ROUTE
-// app.get('/thirstee/edit' , (req, res) => {
-//   res.render('edit.ejs');
-// });
 
-// POST - NEW route
+// POST -  CREATE - NEW route 3
 app.post('/thirstee', (req, res) => {
   //console.log(req.body);
   // creates newBeer object to match the data structure of the model
@@ -190,43 +235,8 @@ app.post('/thirstee', (req, res) => {
   res.redirect('/thirstee' );
 });
 
-  // PUT - EDIT route
-  // app.get('thirstee/:id/edit', (req,res) => {
-  //   res.send('editing....')
-  // })
-  app.get('thirstee/:id/edit', (req,res) => {
-    Beer.findById(req.params.id, (err, foundBeer) => {
-      res.render('edit.ejs', {
-        beers: foundBeer
-      })
-    })
-    res.send('editing....')
-  })
-// app.put('/thirstee/:id/edit', (req, res) => {
-//   //console.log(req.body);
-//   // creates editBeer object to match the data structure of the model
-//   let editBeer = {
-//     name: req.body.name,
-//     street: req.body.street,
-//     city: req.body.city,
-//     state: req.body.state,
-//     country: req.body.country,
-//     tag_list: req.body.tag_list //.split(','), maybe???
-//   };
-//   console.log(editBeer);
-//   // finds the brewery we're editing by the id, then sets it equal to the editBeer object
-//   Beer[req.params.id] = editBeer; //this did say index instead of id
-//   res.redirect('/thirstee/' + req.params.id); //this did say index instead of id
-// })
 
 
-// DELETE - DESTROY route
-app.delete('/:id', (req, res) => {
-  // res.send('deleting...')
-  Beer.findByIdAndRemove(req.params.id, (err, data) => {//this did say index
-  res.redirect('/thirstee');
-  });
-});
 
 
 
