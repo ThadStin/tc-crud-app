@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const beerSchema = new mongoose.Schema({
-  //img: String,
+  img: {type: String, required:false},
   name: {type: String, required: true},
   street: {type: String, required: true},
   city: {type: String, required: true},

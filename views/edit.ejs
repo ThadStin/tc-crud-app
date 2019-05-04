@@ -3,16 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
   </head>
   <body>
     <h1>THIRSTEE Edit Page!!</h1>
-    <form action="/thirstee/<%=beery.id%>?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%=beery.name%>"/><br/>
-      Street: <input type="text" name="street" value="<%=beery.street%>"/><br/>
-      City: <input type="text" name="city" value="<%=beery.city%>"/><br/>
-      State: <input type="text" name="state" value="<%=beery.state%>"/><br/>
-      Country: <input type="text" name="country" value="<%=beery.country%>"/><br/>
-      tags: <input type="text" name="tags" value="<%=beery.tag_list%>"/><br/>
+    <img src="<%=beer.img%>"></img>
+    <form action="/thirstee/<%=beer.id%>?_method=PUT" method="POST">
+      Name: <input type="text" name="name" value="<%=beer.name%>"/><br/>
+      Street: <input type="text" name="street" value="<%=beer.street%>"/><br/>
+      City: <input type="text" name="city" value="<%=beer.city%>"/><br/>
+      State: <input type="text" name="state" value="<%=beer.state%>"/><br/>
+      Country: <input type="text" name="country" value="<%=beer.country%>"/><br/>
+      Upload Image: <input type="text" name="img" value="<%=beer.img%>"/><br/>
+      tags: <input type="text" name="tags" value="<%=beer.tag_list%>"/><br/>
       <input type="submit" value="Submit Changes"/>
     </form>
   </body>

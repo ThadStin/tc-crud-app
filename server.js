@@ -51,7 +51,7 @@ app.get('/seed', async (req, res) => {
   const newBeer =
     [
       {
-        //img: "./images/pegasus_city.png",
+        img: "https://pbs.twimg.com/profile_images/656179629128970240/dmUBuhEf_400x400.png",
         name: "Pegasus City Brewery",
         street: "2222 Vantage St",
         city: "Dallas",
@@ -61,7 +61,7 @@ app.get('/seed', async (req, res) => {
         tag_list: []
       },
       {
-        //img: "./images/tap.png",
+        img: "https://3.bp.blogspot.com/-1AdSOUWk-tE/WKuO3sLYcRI/AAAAAAAADpo/FJ_a18kMbzcLg5A1hQ2SY8WZKSRUJKnwwCLcB/s400/logo.png",
         name: "Texas Ale Project",
         street: "1001 N Riverfront Blvd",
         city: "Dallas",
@@ -71,7 +71,7 @@ app.get('/seed', async (req, res) => {
         tag_list: []
       },
       {
-        //img: "./images/braindead.png",
+        img: "https://d1yf68t7nbxlyn.cloudfront.net/image/id/24796391415034014",
         name: "Braindead Brewing",
         street: "2625 Main St",
         city: "Dallas",
@@ -81,7 +81,7 @@ app.get('/seed', async (req, res) => {
         tag_list: []
       },
       {
-        //img: "./images/four_corners.png",
+        img: "https://fcbrewing.com/wp-content/uploads/2018/04/3-ColorLogo-small-2.png",
         name: "Four Corners Brewing Co",
         street: "423 Singleton Blvd",
         city: "Dallas",
@@ -91,7 +91,7 @@ app.get('/seed', async (req, res) => {
         tag_list: []
       },
       {
-        //img: "./images/oak_cliff.jpg",
+        img: "http://static1.squarespace.com/static/5b351bdc0dbda3ecb154572f/t/5b78c15a758d46b6ff83aa84/1534640475856/logo_yl_400_d.jpg?format=1500w",
         name: "Oak Cliff Brewing Co",
         street: "1300 S. Polk St",
         city: "Dallas",
@@ -101,7 +101,7 @@ app.get('/seed', async (req, res) => {
         tag_list: []
       },
       {
-        //img: "./images/peticolas.png",
+        img: "http://www.peticolasbrewing.com/wp-content/themes/peticolas/images/logo.png",
         name: "Peticolas Brewing Co",
         street: "2026 Farrington St",
         city: "Dallas",
@@ -141,17 +141,17 @@ app.get('/seed', async (req, res) => {
 // });
 app.put('/thirstee/:id', (req, res) => {
   Beer.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
-  res.redirect('/thirstee/:id')       //new:false shows what you used to have before you changed it
+  res.redirect('/thirstee')       //new:false shows what you used to have before you changed it
 })  //take back to show page
 });
 // app.get('thirstee/edit', (req,res) => {
 //   res.send('editing....')
 // })
 //////UPDATE - edit 6
-app.get('/thirstee/:id/edit', (req,res) => {
+app.get('/thirstee/:id/edit', (req, res) => {
   Beer.findById(req.params.id, (err, editBeer) => {
    res.render('edit.ejs', {
-     beery: editBeer
+     beer: editBeer
    })
   })
 });
@@ -180,6 +180,11 @@ app.get('/thirstee/new' , (req, res) => {
   //     beers: newBeer
   //   })
   // })
+});
+app.post('/thirstee', (req, res) => {
+ Beer.create(req.body, (error, data) => {
+   res.redirect('/thirstee');
+ });
 });
 
 
