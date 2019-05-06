@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThadStin/TC-crud-app.git"
+    "url": "git+https://github.com/ThadStin/tc-crud-app.git"
   },
   "author": "Thad Stinson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ThadStin/TC-crud-app/issues"
+    "url": "https://github.com/ThadStin/tc-crud-app/issues"
   },
-  "homepage": "https://github.com/ThadStin/TC-crud-app#readme",
+  "homepage": "https://github.com/ThadStin/tc-crud-app#readme",
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
