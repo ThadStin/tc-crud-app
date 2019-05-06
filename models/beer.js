@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 const beerSchema = new mongoose.Schema({
   img: {type: String, required:false},
   name: {type: String, required: true},
-  street: {type: String, required: true},
+  street: {type: String, required: false},
   city: {type: String, required: true},
   state: {type: String, required: true},
-  country: {type: String, required: true},
-  tag_list: [{type: String, required: false}],
+  country: {type: String, required: false},
+  tag_list: [],
 });
 
 const Beer = mongoose.model('Beers', beerSchema);

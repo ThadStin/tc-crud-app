@@ -17,37 +17,51 @@
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!---_____________Image styling for Index page _______________-->
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
-
+  <link rel="stylesheet" type="text/css"  href="/styles.css"/>
+  <style>
+    img {
+      height: 200px;
+      width: 200px;
+      margin: 30px;
+    }
+  </style>
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
-
 </head>
 <body>
-
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
-      <h1>Thirstee Drink Finder</h1>
+      <h1>Thirstee Brews</h1>
+        <div class="column">
+          <nav>
+            <a class="button button-primary" href="/thirstee/new/">Make New Watering Hole!</a>
+          </nav>
+          <div class="images">
 
-      <div class="one.column" style="margin-top: 25%">
+
         <% for (let i = 0; i < beers.length; i++) { %>
-          <a href="/thirstee/<%=beers[i].id%>"><img src="<%= beers[i].img %>"></img></a>
+          <a href="/thirstee/<%=beers[i].id%>"><img src="<%= beers[i].img %>"> </img></a>
+          <a class="name" href="/thirstee/<%=beers[i].id%>"> <%= beers[i].name %> </a>
             <% } %>
+            <!-- open squizard  beers[i].name %> -->
+<br>
+<br>
+<br>
+<br>
+          </div>
 
-            <nav>
-              <a href="/thirstee/new/">Make New Watering Hole!</a>
-            </nav>
-
+        </div>
       </div>
     </div>
-  </div>
+
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

@@ -5,18 +5,29 @@
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
+    <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <h1>Thirstee New Page</h1>
-    <form action="/thirstee" method="POST">
-      Name: <input type="text" name="name"/><br/>
-      Street: <input type="text" name="street"/><br/>
-      City: <input type="text" name="city"/><br/>
-      State: <input type="text" name="state"/><br/>
-      Country: <input type="text" name="country"/><br/>
-      Upload Image: <input type="text" name="img"/><br/>
-      tags: <input type="text" name="tags"/><br/>
-      <input type="submit" value="Create Beer"/>
-    </form>
+    <div class="container">
+      <div class="row">
+        <h1>Give Info for New Brewery</h1>
+        <div class="column">
+
+          <form action="/thirstee" method="POST">
+            Name: <input type="text" name="name" placeholder="required"/><br/>
+            Street Address: <input type="text" name="street" placeholder="not required"/><br/>
+            City: <input type="text" name="city" placeholder="required"/><br/>
+            State: <input type="text" name="state" placeholder="required"/><br/>
+            <!-- Country: <input type="text" name="country"/><br/> -->
+            Upload Image: <input type="text" name="img" placeholder="paste image address"/><br/>
+            tags: <input type="text" name="tags"/><br/>
+            <input class="button-primary" type="submit" placeholder="Create Beer"/>
+          </form>
+        <nav>
+          <a class="button button-primary" href="/thirstee">I don't want to create new brewery</a>
+        </nav>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

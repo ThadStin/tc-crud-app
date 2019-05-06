@@ -58,7 +58,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "http://www.pegasuscitybrewery.com",
-        tag_list: []
+        tag_list: "Good beer"
       },
       {
         img: "https://3.bp.blogspot.com/-1AdSOUWk-tE/WKuO3sLYcRI/AAAAAAAADpo/FJ_a18kMbzcLg5A1hQ2SY8WZKSRUJKnwwCLcB/s400/logo.png",
@@ -68,7 +68,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "http://www.texasaleproject.com",
-        tag_list: []
+        tag_list: "Mike Madono is the best!"
       },
       {
         img: "https://d1yf68t7nbxlyn.cloudfront.net/image/id/24796391415034014",
@@ -78,7 +78,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "http://www.braindeadbrewing.com",
-        tag_list: []
+        tag_list: "Amazing Beers"
       },
       {
         img: "https://fcbrewing.com/wp-content/uploads/2018/04/3-ColorLogo-small-2.png",
@@ -88,7 +88,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "http://www.fcbrewing.com",
-        tag_list: []
+        tag_list: "Try the El Chingon"
       },
       {
         img: "http://static1.squarespace.com/static/5b351bdc0dbda3ecb154572f/t/5b78c15a758d46b6ff83aa84/1534640475856/logo_yl_400_d.jpg?format=1500w",
@@ -98,7 +98,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "",
-        tag_list: []
+        tag_list: "Excellent!"
       },
       {
         img: "http://www.peticolasbrewing.com/wp-content/themes/peticolas/images/logo.png",
@@ -108,7 +108,7 @@ app.get('/seed', async (req, res) => {
         state: "Texas",
         country: "United States",
         //"website_url": "http://www.peticolasbrewing.com",
-        tag_list: []
+        tag_list: "Yum!"
       },
 
     ]
@@ -136,17 +136,12 @@ app.get('/seed', async (req, res) => {
 // });
 
 //PUT - EDIT ROUTE 5
-// app.get('/thirstee/:id/edit' , (req, res) => {
-//   res.render('edit.ejs');
-// });
 app.put('/thirstee/:id', (req, res) => {
   Beer.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updateModel) => {
-  res.redirect('/thirstee')       //new:false shows what you used to have before you changed it
-})  //take back to show page
+  res.redirect('/thirstee/')       //new:false shows what you used to have before you changed it
+})  //take back to index page
 });
-// app.get('thirstee/edit', (req,res) => {
-//   res.send('editing....')
-// })
+
 //////UPDATE - edit 6
 app.get('/thirstee/:id/edit', (req, res) => {
   Beer.findById(req.params.id, (err, editBeer) => {
@@ -155,22 +150,6 @@ app.get('/thirstee/:id/edit', (req, res) => {
    })
   })
 });
-// app.put('/thirstee/:id/edit', (req, res) => {
-//   //console.log(req.body);
-//   // creates editBeer object to match the data structure of the model
-//   let editBeer = {
-//     name: req.body.name,
-//     street: req.body.street,
-//     city: req.body.city,
-//     state: req.body.state,
-//     country: req.body.country,
-//     tag_list: req.body.tag_list //.split(','), maybe???
-//   };
-//   console.log(editBeer);
-//   // finds the brewery we're editing by the id, then sets it equal to the editBeer object
-//   Beer[req.params.id] = editBeer; //this did say index instead of id
-//   res.redirect('/thirstee/' + req.params.id); //this did say index instead of id
-// })
 
 //NEW ROUTE 2
 app.get('/thirstee/new' , (req, res) => {
@@ -189,7 +168,7 @@ app.post('/thirstee', (req, res) => {
 
 
 // DELETE - DESTROY route 7
-app.delete('/:id', (req, res) => {  //had to remove /thirstee from url for some reason
+app.delete('/thirstee/:id', (req, res) => {  //had to remove /thirstee from url for some reason
   // res.send('deleting...')
   Beer.findByIdAndRemove(req.params.id, (err, data) => {//this did say index
   res.redirect('/thirstee');
@@ -231,7 +210,7 @@ app.post('/thirstee', (req, res) => {
     city: req.body.city,
     state: req.body.state,
     country: req.body.country,
-    tag_list: req.body.tag_list //.split(','), maybe???
+    tag_list: req.body.tag_list.split(',')
   };
   console.log(newBeer);
   // pushes the newBeer object into the databse

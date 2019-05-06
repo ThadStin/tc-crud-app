@@ -2,25 +2,47 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>See Info</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
+    <link rel="stylesheet" href="/styles.css">
+
+    <style>
+      img {
+        width: 500px;
+        height: 500px;
+      }
+      form {
+        margin-top: 3%;
+      }
+    </style>
+
   </head>
   <body>
-    <h1>Thirstee Show Page!!</h1>
-    The <%=beer.name%> is in  <%=beer.city%>.
-    <img src="<%=beer.img%>"></img>
+    <div class="container">
+      <div class="row">
+        <h1><%=beer.name%></h1>
+        <div class="column">
 
-    <form action= "<%=beer.id%>?_method=DELETE" method="POST">
-      <input type="submit" value="DELETE"/>
-    </form>
-    <a class="button" href="/thirstee/<%=beer.id%>/edit">Edit product</a>  <!--when clicked, doubles down on thirstee.
-      if I take it out, only returns :id/edit.  Why??  fixed doubling down but still can't GET-->
-<nav>
 
-  <a class="button" href="/thirstee">Back to Breweries</a>
 
-</nav>
+          <img src="<%=beer.img%>"></img></br>
+          <br>
+          <h5><%=beer.street%></h5>
+          <h5><%=beer.city%>, <%=beer.state%></h5>
+          <p>Tags: <%=beer.tag_list%></p>
+
+          <a class="button button-primary" href="/thirstee/<%=beer.id%>/edit">Edit Info</a>
+
+          <form action= "/thirstee/<%=beer.id%>?_method=DELETE" method="POST">
+            <input class="button-primary" type="submit" value="DELETE BREWERY"/>
+          </form>
+          <nav>
+            <a class="button button-primary" href="/thirstee">Back to Breweries</a>
+          </nav>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
 <!--  -->

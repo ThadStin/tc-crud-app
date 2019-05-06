@@ -5,19 +5,47 @@
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .two-thirds.column {
+        margin: 0 auto;
+        justify-content: flex-end;
+      }
+      img {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
   </head>
   <body>
-    <h1>THIRSTEE Edit Page!!</h1>
-    <img src="<%=beer.img%>"></img>
-    <form action="/thirstee/<%=beer.id%>?_method=PUT" method="POST">
-      Name: <input type="text" name="name" value="<%=beer.name%>"/><br/>
-      Street: <input type="text" name="street" value="<%=beer.street%>"/><br/>
-      City: <input type="text" name="city" value="<%=beer.city%>"/><br/>
-      State: <input type="text" name="state" value="<%=beer.state%>"/><br/>
-      Country: <input type="text" name="country" value="<%=beer.country%>"/><br/>
-      Upload Image: <input type="text" name="img" value="<%=beer.img%>"/><br/>
-      tags: <input type="text" name="tags" value="<%=beer.tag_list%>"/><br/>
-      <input type="submit" value="Submit Changes"/>
-    </form>
+    <div class="container">
+      <div class="row">
+        <h1>Edit Info for <%=beer.name%></h1>
+        <div class="column">
+
+          <img src="<%=beer.img%>"></img>
+          <!-- <div class="two-thirds.column"> -->
+
+
+          <form action="/thirstee/<%=beer.id%>?_method=PUT" method="POST">
+            Name: <input type="text" name="name" value="<%=beer.name%>"/><br/>
+            Street: <input type="text" name="street" value="<%=beer.street%>"/><br/>
+            City: <input type="text" name="city" value="<%=beer.city%>"/><br/>
+            State: <input type="text" name="state" value="<%=beer.state%>"/><br/>
+            Country: <input type="text" name="country" value="<%=beer.country%>"/><br/>
+            Upload Image: <input type="text" name="img" value="<%=beer.img%>"/><br/>
+            Tags: <input type="text" name="tags" value="<%=beer.tag_list%>"/><br/>
+            <!-- Tags:<textarea name="tag_list" rows="8" cols="40" value= "<%=beer.tag_list%>"></textarea> -->
+            <input class="button-primary" type="submit" value="Submit Changes"/>
+          </form>
+          <!-- </div> -->
+
+          <nav>
+            <a class="button button-primary" href="/thirstee">I don't want to edit brewery</a>
+          </nav>
+
+        </div>
+      </div>
+    </div>
   </body>
 </html>
