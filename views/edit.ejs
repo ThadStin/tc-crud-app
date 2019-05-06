@@ -12,8 +12,8 @@
         justify-content: flex-end;
       }
       img {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
       }
       input[type="submit"].button-primary:hover {
         color: #FFF;
@@ -30,6 +30,8 @@
           <img src="<%=beer.img%>"></img>
           <!-- <div class="two-thirds.column"> -->
 
+          <div class="info">
+
 
           <form action="/thirstee/<%=beer.id%>?_method=PUT" method="POST">
             Name: <input type="text" name="name" value="<%=beer.name%>"/><br/>
@@ -40,9 +42,10 @@
             Upload Image: <input type="text" name="img" value="<%=beer.img%>"/><br/>
             Tags: <input type="text" name="tags" value="<%=beer.tag_list%>"/><br/>
             <!-- Tags:<textarea name="tag_list" rows="8" cols="40" value= "<%=beer.tag_list%>"></textarea> -->
-            <input class="button-primary" type="submit" value="Submit Changes"/>
+            <input class="button-primary" type="submit" value="Submit"/>
           </form>
-          <!-- </div> -->
+          </div>
+
 
           <nav>
             <a class="button button-primary" href="/thirstee">I don't want to edit brewery</a>

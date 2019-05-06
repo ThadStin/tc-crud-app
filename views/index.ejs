@@ -25,9 +25,8 @@
   <link rel="stylesheet" type="text/css"  href="/styles.css"/>
   <style>
     img {
-      height: 200px;
-      width: 200px;
-      margin: 30px;
+    height: 200px;
+    width: 200px;
     }
   </style>
   <!-- Favicon
@@ -46,12 +45,11 @@
           </nav>
           <div class="images">
 
-
-        <% for (let i = 0; i < beers.length; i++) { %>
-          <a href="/thirstee/<%=beers[i].id%>"><img src="<%= beers[i].img %>"> </img></a>
-          <a class="name" href="/thirstee/<%=beers[i].id%>"> <%= beers[i].name %> </a>
-            <% } %>
-            <!-- open squizard  beers[i].name %> -->
+              <% for (let i = 0; i < beers.length; i++) { %>
+                <a href="/thirstee/<%=beers[i].id%>"><img src="<%= beers[i].img %>"> </img><p><%= beers[i].name %></p></a>
+                <!-- <a class="name" href="/thirstee/open squizard beers[i].id%>"> <%= beers[i].name %> </a> -->
+                <% } %>
+                <!-- open squizard  beers[i].name %> -->
 <br>
 <br>
 <br>
