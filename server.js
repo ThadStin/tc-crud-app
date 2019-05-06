@@ -134,6 +134,10 @@ app.get('/seed', async (req, res) => {
 //     res.send(beer)
 //   });
 // });
+// REDIRECT FOR DEFAULT ROUTE
+app.get('/', (req, res) => {
+  res.redirect('/thirstee')
+})
 
 //PUT - EDIT ROUTE 5
 app.put('/thirstee/:id', (req, res) => {

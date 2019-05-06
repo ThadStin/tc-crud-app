@@ -5,7 +5,7 @@ body {
 /* .container {
   margin: 0 auto;
   justify-content: center;
-}  */
+} */
 h1 {
   color: #ffffff;
   margin: 0 auto;
@@ -21,12 +21,12 @@ p {
   color: #ffffff;
 }
 
-/* .column {
+.column {
   margin: 0 auto;
   padding: 3%;
   margin: 0 auto;
   text-align: center;
-} */
+}
 
 .button.button-primary {
   margin: 0 auto;
