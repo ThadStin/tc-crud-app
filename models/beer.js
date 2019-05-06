@@ -8,7 +8,7 @@ const beerSchema = new mongoose.Schema({
   city: {type: String, required: true},
   state: {type: String, required: true},
   country: {type: String, required: false},
-  tag_list: [],
+  tag_list: Array,
 });
 
 const Beer = mongoose.model('Beers', beerSchema);
