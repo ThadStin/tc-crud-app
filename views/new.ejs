@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css">
     <link rel="stylesheet" href="/styles.css">
     <style>
-    input[type="submit"].button-primary:hover {
-      color: #FFF;
-      background-color: #8fe552;
-      border-color: #33C3F0; }
+      .button-primary {
+        margin-right: 6%;
+      }
     </style>
   </head>
   <body>
@@ -24,10 +23,11 @@
             Name: <input type="text" name="name" placeholder="required"/><br/>
             Street Address: <input type="text" name="street" placeholder="not required"/><br/>
             City: <input type="text" name="city" placeholder="required"/><br/>
-            State: <input type="text" name="state" placeholder="required"/><br/>
-            <!-- Country: <input type="text" name="country"/><br/> -->
+            State: <input type="text" name="state" placeholder="not required"/><br/>
+            Country: <input type="text" name="country" placeholder="not required"/><br/>
+            Website: <input type="text" name="website_url" placeholder="not required"/><br/>
             Upload Image: <input type="text" name="img" placeholder="paste image address"/><br/>
-            tags: <input type="text" name="tags"/><br/>
+            <!-- tags: <input type="text" name="tags"/><br/> -->
             <input class="button-primary" type="submit" placeholder="Create Beer"/>
           </form>
           </div>

@@ -57,8 +57,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "http://www.pegasuscitybrewery.com",
-        tag_list: "Good beer"
+        website_url: "http://www.pegasuscitybrewery.com",
+        // tag_list: "Good beer"
       },
       {
         img: "https://3.bp.blogspot.com/-1AdSOUWk-tE/WKuO3sLYcRI/AAAAAAAADpo/FJ_a18kMbzcLg5A1hQ2SY8WZKSRUJKnwwCLcB/s400/logo.png",
@@ -67,8 +67,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "http://www.texasaleproject.com",
-        tag_list: "Mike Madono is the best!"
+        website_url: "http://www.texasaleproject.com",
+        // tag_list: "Mike Madano is the best!"
       },
       {
         img: "https://d1yf68t7nbxlyn.cloudfront.net/image/id/24796391415034014",
@@ -77,8 +77,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "http://www.braindeadbrewing.com",
-        tag_list: "Amazing Beers"
+        website_url: "http://www.braindeadbrewing.com",
+        // tag_list: "Amazing Beers"
       },
       {
         img: "https://fcbrewing.com/wp-content/uploads/2018/04/3-ColorLogo-small-2.png",
@@ -87,8 +87,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "http://www.fcbrewing.com",
-        tag_list: "Try the El Chingon"
+        website_url: "http://www.fcbrewing.com",
+        // tag_list: "Try the El Chingon"
       },
       {
         img: "http://static1.squarespace.com/static/5b351bdc0dbda3ecb154572f/t/5b78c15a758d46b6ff83aa84/1534640475856/logo_yl_400_d.jpg?format=1500w",
@@ -97,8 +97,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "",
-        tag_list: "Excellent!"
+        website_url: "",
+        // tag_list: "Excellent!"
       },
       {
         img: "http://www.peticolasbrewing.com/wp-content/themes/peticolas/images/logo.png",
@@ -107,8 +107,8 @@ app.get('/seed', async (req, res) => {
         city: "Dallas",
         state: "Texas",
         country: "United States",
-        //"website_url": "http://www.peticolasbrewing.com",
-        tag_list: "Yum!"
+        website_url: "http://www.peticolasbrewing.com",
+        // tag_list: "Yum!"
       },
 
     ]
@@ -174,7 +174,7 @@ app.post('/thirstee', (req, res) => {
 // DELETE - DESTROY route 7
 app.delete('/thirstee/:id', (req, res) => {  //had to remove /thirstee from url for some reason
   // res.send('deleting...')
-  Beer.findByIdAndRemove(req.params.id, (err, data) => {//this did say index
+  Beer.findByIdAndRemove(req.params.id, (err, data) => {
   res.redirect('/thirstee');
   });
 });

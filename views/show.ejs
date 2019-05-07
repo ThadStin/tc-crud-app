@@ -9,15 +9,15 @@
 
     <style>
       img {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
       }
       form {
         margin-top: 3%;
       }
       input[type="submit"].button-primary:hover {
         color: #FFF;
-        background-color: /*#33C3F0;*/ #f26357;
+        background-color: #f26357;
         border-color: #33C3F0; }
     </style>
 
@@ -34,8 +34,9 @@
           <br>
           <h5><%=beer.street%></h5>
           <h5><%=beer.city%>, <%=beer.state%></h5>
-          <p>Tags: <%=beer.tag_list%></p>
-
+          <a href="<%=beer.website_url%>" target="_blank">Website: <%=beer.name%> </a>
+          <!-- <p>Tags: <%=beer.tag_list%></p> -->
+          <br>
           <a class="button button-primary" href="/thirstee/<%=beer.id%>/edit">Edit Info</a>
 
           <form action= "/thirstee/<%=beer.id%>?_method=DELETE" method="POST">

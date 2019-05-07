@@ -15,10 +15,9 @@
         width: 400px;
         height: 400px;
       }
-      input[type="submit"].button-primary:hover {
-        color: #FFF;
-        background-color: #8fe552;
-        border-color: #33C3F0; }
+      .button-primary {
+        margin-right: 3%;
+      }
     </style>
   </head>
   <body>
@@ -39,10 +38,10 @@
             City: <input type="text" name="city" value="<%=beer.city%>"/><br/>
             State: <input type="text" name="state" value="<%=beer.state%>"/><br/>
             Country: <input type="text" name="country" value="<%=beer.country%>"/><br/>
+            Website: <input type="text" name="website_url" placeholder="<%=beer.website_url%>"/><br/>
             Upload Image: <input type="text" name="img" value="<%=beer.img%>"/><br/>
-            Tags: <input type="text" name="tags" value="<%=beer.tag_list%>"/><br/>
-            <!-- Tags:<textarea name="tag_list" rows="8" cols="40" value= "<%=beer.tag_list%>"></textarea> -->
-            <input class="button-primary" type="submit" value="Submit"/>
+            <!-- Tags: <input type="text" name="tags" value="open squizard beer.tag_list%>"/><br/> -->
+            <input class="button-primary" type="submit" value="Edit Brewery"/>
           </form>
           </div>
 

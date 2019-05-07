@@ -6,9 +6,10 @@ const beerSchema = new mongoose.Schema({
   name: {type: String, required: true},
   street: {type: String, required: false},
   city: {type: String, required: true},
-  state: {type: String, required: true},
+  state: {type: String, required: false},
   country: {type: String, required: false},
-  tag_list: Array,
+  website_url: {type: String, required: false},
+  // tag_list: Array,
 });
 
 const Beer = mongoose.model('Beers', beerSchema);
