@@ -158,12 +158,9 @@ app.get('/thirstee/:id/edit', (req, res) => {
 //NEW ROUTE 2
 app.get('/thirstee/new' , (req, res) => {
   res.render('new.ejs')
-  // Beer.findById(req.params.id, (err, newBeer) => {
-  //   res.render('new.ejs', {
-  //     beers: newBeer
-  //   })
-  // })
+
 });
+//// POST -  CREATE - NEW route 3
 app.post('/thirstee', (req, res) => {
  Beer.create(req.body, (error, data) => {
    res.redirect('/thirstee');
@@ -172,7 +169,7 @@ app.post('/thirstee', (req, res) => {
 
 
 // DELETE - DESTROY route 7
-app.delete('/thirstee/:id', (req, res) => {  //had to remove /thirstee from url for some reason
+app.delete('/thirstee/:id', (req, res) => {
   // res.send('deleting...')
   Beer.findByIdAndRemove(req.params.id, (err, data) => {
   res.redirect('/thirstee');
@@ -180,6 +177,7 @@ app.delete('/thirstee/:id', (req, res) => {  //had to remove /thirstee from url 
 });
 
 
+//test
 // app.get('/' , (req, res) => {
 //   res.send('Hello THIRSTEE! Use thirstee in your query string');
 // });
@@ -204,27 +202,24 @@ app.get('/thirstee/:id' , (req, res) => {
 });
 
 
-// POST -  CREATE - NEW route 3
-app.post('/thirstee', (req, res) => {
-  //console.log(req.body);
-  // creates newBeer object to match the data structure of the model
-  let newBeer = {
-    name: req.body.name,
-    street: req.body.street,
-    city: req.body.city,
-    state: req.body.state,
-    country: req.body.country,
-    tag_list: req.body.tag_list.split(',')
-  };
-  console.log(newBeer);
-  // pushes the newBeer object into the databse
-  Beer.create(newBeer);
-  // redirects to index page
-  res.redirect('/thirstee' );
-});
-
-
-
+//Don't need this code for POST/CREATE
+// app.post('/thirstee', (req, res) => {
+//   //console.log(req.body);
+//   // creates newBeer object to match the data structure of the model
+//   let newBeer = {
+//     name: req.body.name,
+//     street: req.body.street,
+//     city: req.body.city,
+//     state: req.body.state,
+//     country: req.body.country,
+//     tag_list: req.body.tag_list.split(',')
+//   };
+//   console.log(newBeer);
+//   // pushes the newBeer object into the databse
+//   Beer.create(newBeer);
+//   // redirects to index page
+//   res.redirect('/thirstee' );
+// });
 
 
 
