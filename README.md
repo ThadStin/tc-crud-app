@@ -12,15 +12,15 @@ database.
 
 ### Improvements
 Eventually, I would like to add: 
-  1. ratings
-  2. sort funtionality to the site.
-    - alphabetical
-    - state
-    - country
-    - rating
-  3. mapping feature
-  4. default image if a User logs a new brewery without upoading an image
-  5. a modal to display multiple images of a single brewery.
+  1. ratings  
+  2. sort funtionality to the site.  
+    -alphabetical  
+    -state  
+    -country  
+    -rating  
+  3. mapping feature  
+  4. default image if a User logs a new brewery without upoading an image  
+  5. a modal to display multiple images of a single brewery.  
 
 Overall, I am happy with the design, but it could use a couple of tweaks.  The forms on the edit
 and new pages are not satisfactory to me.  I also feel the text on mobile is a little too small
