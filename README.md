@@ -1,10 +1,10 @@
 # Thirstee Brews
-Located at:  [https://tc-crud-app.herokuapp.com/thirstee]
+Located at:  https://tc-crud-app.herokuapp.com/thirstee
 
 ### About Thristee Brews
 
 Thirstee Brews is a full CRUD website built with Skeleton CSS, Node.js, Mongoose, Express, EJS, and 
-deployed with Heroku.  The initial seed data was taken from [https://www.openbrewerydb.org/].
+deployed with Heroku.  The initial seed data was taken from https://www.openbrewerydb.org/.
 
 Thirstee Brews was created to log location and url's of breweries for easy access to information.
 A User can upload new breweries anywhere in the world or edit existing breweries already in the 
