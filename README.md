@@ -14,10 +14,10 @@ database.
 Eventually, I would like to add: 
   1. ratings
   2. sort funtionality to the site.
-    * alphabetical
-    * state
-    * country
-    * rating
+    - alphabetical
+    - state
+    - country
+    - rating
   3. mapping feature
   4. default image if a User logs a new brewery without upoading an image
   5. a modal to display multiple images of a single brewery.
