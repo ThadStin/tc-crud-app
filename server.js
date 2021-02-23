@@ -16,9 +16,13 @@ const PORT = process.env.PORT || 3000;
 //___________________
 //Database
 //___________________
-// How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/'+ 'thirstee';
-
+// How to connect to the database either via heroku or locally -- Updated for MongoDB Atlas M0
+//Must create database on mongodb atlas first
+//https://developer.mongodb.com/how-to/use-atlas-on-heroku/
+//https://www.youtube.com/watch?v=imR9LlbG3pU
+//user: ThadStin password: 5GAQBAldj73nKgdh
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://ThadStin:5GAQBAldj73nKgdh@breweries.ua1xd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// when it used to be mlab on heroku: mongodb://localhost/'+ 'thirstee
 // Connect to Mongo
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
